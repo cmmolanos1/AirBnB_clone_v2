@@ -10,15 +10,18 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-import shlex 
+import shlex
 
 classes = {'BaseModel': BaseModel, 'User': User, 'State': State, 'City': City,
            'Amenity': Amenity, 'Place': Place, 'Review': Review}
+
 
 class HBNBCommand(cmd.Cmd):
     """this class is entry point of the command interpreter
     """
     prompt = "(hbnb) "
+    all_classes = {"BaseModel", "User", "State", "City",
+                   "Amenity", "Place", "Review"}
 
     def emptyline(self):
         """Ignores empty spaces"""
@@ -43,22 +46,22 @@ class HBNBCommand(cmd.Cmd):
         else:
             a = shlex.split(args)
             if a[0] in classes and len(a) == 1:
-                print ("Siiiiiii")
                 new = eval(str(args) + "()")
                 new.save()
                 print(new.id)
             elif a[0] in classes and len(a) > 1:
-                # new = eval(str(args[0]) + "()")
+                new = eval(str(a[0]) + "()")
                 params = dict(arg.split('=') for arg in a[1:])
                 for key, val in params.items():
                     if '_' in val:
                         val = val.replace('_', ' ')
-                new = classes[a[0]](**params)
+                    if hasattr(new, key):
+                        setattr(new, key, val)
                 new.save()
                 print(new.id)
             else:
                 print("** class doesn't exist **")
-                
+
     def do_show(self, line):
         """Prints the string representation of an instance
         Exceptions:
