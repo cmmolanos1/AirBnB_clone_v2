@@ -34,7 +34,7 @@ class FileStorage:
                 self.save()
 
     def all(self, cls=None):
-       """returns a dictionary
+        """returns a dictionary
         Args:
             cls: class type to filter return by
         Return:
