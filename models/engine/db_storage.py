@@ -64,4 +64,4 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         Session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         session = scoped_session(Session)
-        self.__session = session
+        self.__session = session()

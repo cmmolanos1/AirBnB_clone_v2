@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """This is the state class"""
 from models.base_model import BaseModel, Base
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-import os
+from models.city import City
 
 
 class State(BaseModel, Base):
@@ -15,7 +16,7 @@ class State(BaseModel, Base):
 
     name = Column(String(128), nullable=False)
     cities = relationship("City", backref="state",
-                          cascade="all, delete-orphan")
+                          cascade="all, delete, delete-orphan")
 
     @property
     def cities(self):
