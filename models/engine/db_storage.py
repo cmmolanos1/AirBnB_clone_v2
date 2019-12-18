@@ -15,6 +15,7 @@ classes = {"City": City, "State": State, "User": User,
            "Place": Place, "Review": Review, "Amenity": Amenity}
 
 
+
 class DBStorage:
     """ Class DBStorage """
     __engine = None
