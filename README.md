@@ -797,3 +797,6 @@ All the code is tested with the **unittest** module.
 The test for the classes are in the [test_models](./tests/test_models/) folder.
 
 ## Authors
+#"Carlos Molano"  <cmmolanos@gmail.com> - https://twitter.com/klichmola
+
+#"Alzheimeer" EC Mauricio Quintero R.- <fogniebla@hotmail.com> - https://twitter.com/Alzheimeer
