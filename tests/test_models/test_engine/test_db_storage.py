@@ -15,39 +15,45 @@ from sqlalchemy.orm import sessionmaker
 
 
 @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db',
-                 "only testing db storage")
+                 "only testing db")
 class test_DBStorage(unittest.TestCase):
 
-    def testState(self):
-        state = State(name="Greg")
+    def test_State(self):
+        """ Check if loads name"""
+        state = State(name="Carl")
         if state.id in models.storage.all():
-            self.assertTrue(state.name, "Greg")
+            self.assertTrue(state.name, "Carl")
 
-    def testCity(self):
-        city = City(name="Afa")
+    def test_City(self):
+        """ Check if loads name """
+        city = City(name="Bogota")
         if city.id in models.storage.all():
-            self.assertTrue(city.name, "Afa")
+            self.assertTrue(city.name, "Bogota")
 
-    def testPlace(self):
-        place = Place(name="MyShoeBox", number_rooms=5)
+    def test_Place(self):
+        """ Checks if leads name and numer """
+        place = Place(name="Hotel", number_rooms=4)
         if place.id in models.storage.all():
-            self.assertTrue(place.number_rooms, 5)
-            self.assertTrue(place.name, "MyShoeBox")
+            self.assertTrue(place.number_rooms, 4)
+            self.assertTrue(place.name, "Hotel")
 
-    def testUser(self):
-        user = User(name="Young_Jeezy")
+    def test_User(self):
+        """ Check if loads name """
+        user = User(name="926")
         if user.id in models.storage.all():
-            self.assertTrue(user.name, "Young_Jeezy")
+            self.assertTrue(user.name, "926")
 
-    def testAmenity(self):
-        amenity = Amenity(name="Toilet")
+    def test_Amenity(self):
+        """ Check if loads name """
+        amenity = Amenity(name="Wifi")
         if amenity.id in models.storage.all():
-            self.assertTrue(amenity.name, "Toilet")
+            self.assertTrue(amenity.name, "Wifi")
 
-    def testReview(self):
-        review = Review(text="hello")
+    def test_Review(self):
+        """ Tests if leads text """
+        review = Review(text="Very_good_place")
         if review.id in models.storage.all():
-            self.assertTrue(review.text, "hello")
+            self.assertTrue(review.text, "Very_good_place")
 
     def teardown(self):
         self.session.close()

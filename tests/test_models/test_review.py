@@ -68,6 +68,15 @@ class TestReview(unittest.TestCase):
         """test if dictionary works"""
         self.assertEqual('to_dict' in dir(self.rev), True)
 
+    def test_save(self):
+        """ Teste if the infor is well saved """
+        cls.rev.save()
+        self.assertNotEqual(self.rev.created_at, self.rev.updated_at)
+
+    def test_to_dict(self):
+        """test if dictionary works"""
+        self.assertEqual('to_dict' in dir(self.amenity), True)
+
 
 if __name__ == "__main__":
     unittest.main()
