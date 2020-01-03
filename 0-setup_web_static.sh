@@ -9,7 +9,7 @@ sudo sed -i "15i add_header X-Served-By \$hostname;" /etc/nginx/nginx.conf
 sudo mkdir -p /data/web_static/shared/ /data/web_static/releases/test/
 
 # Create html file
-echo -e "<html>
+echo "<html>
   <head>
   </head>
   <body>
