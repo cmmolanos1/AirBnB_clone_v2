@@ -10,8 +10,8 @@ sudo mkdir -p /data/web_static/shared/ /data/web_static/releases/test/
 
 # Create html file
 echo "<html>
-  <head>
-  </head>
+<head>
+</head>
   <body>
     Holberton School
   </body>
