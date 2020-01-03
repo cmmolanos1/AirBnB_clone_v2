@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Install nginX and configure the http header
 sudo apt-get -y update
 sudo apt-get -y install nginx
