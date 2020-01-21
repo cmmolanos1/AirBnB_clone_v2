@@ -21,16 +21,14 @@ class State(BaseModel, Base):
         cities = relationship("City", backref="state",
                               cascade="all, delete, delete-orphan")
     else:
-        name = ""
-
-    @property
-    def cities(self):
-        """
-        returns the list of City instances with state_id equals
-        to the current State.id
-        """
-        list_city = []
-        for city in models.storage.all(City).values():
-            if city.state_id == self.id:
-                list_city.append(city)
-        return list_city
+        @property
+        def cities(self):
+            """
+            returns the list of City instances with state_id equals
+            to the current State.id
+            """
+            list_city = []
+            for city in models.storage.all(City).values():
+                if city.state_id == self.id:
+                    list_city.append(city)
+            return list_city
