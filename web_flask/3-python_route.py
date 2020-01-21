@@ -28,7 +28,7 @@ def hello_c(text):
 
 @app.route('/python/')
 @app.route('/python/<text>')
-def hello_py(text='is fun'):
+def hello_py(text='is cool'):
     """ Print the message """
     b = text.replace('_', ' ')
     return 'Python {}'.format(b)
