@@ -23,7 +23,7 @@ def states_list():
 
 @app.route('/cities_by_states')
 def cities_by_states():
-    """ Print cities by id"""
+    """ Print cities by state"""
     states = storage.all('State').values()
     return render_template('8-cities_by_states.html', states=states)
 
