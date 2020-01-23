@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ Class DBstorage """
 import models
 from os import getenv
